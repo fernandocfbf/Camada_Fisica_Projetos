@@ -1,0 +1,29 @@
+-------- TESTANDO COMUNICAÇÃO -------- 
+Enviando handShake... 
+Comunicação estabelecida! 
+-------------------------------------- 
+ 
+------ INICIANDO ENVIO DE DADOS ------ 
+MOMENTO: 2020-10-02 18:19:48.591276 | PACOTE 1 | STATUS: 4 | PAYLOAD: 114 | PACOTES: 9 | CRC: 20351 
+MOMENTO: 2020-10-02 18:19:50.127818 | PACOTE 2 | STATUS: 4 | PAYLOAD: 114 | PACOTES: 9 | CRC: 7690 
+MOMENTO: 2020-10-02 18:19:51.670913 | PACOTE 3 | STATUS: 4 | PAYLOAD: 114 | PACOTES: 9 | CRC: 65241 
+MOMENTO: 2020-10-02 18:19:53.211528 | PACOTE 4 | STATUS: 4 | PAYLOAD: 114 | PACOTES: 9 | CRC: 10364 
+MOMENTO: 2020-10-02 18:19:54.748188 | PACOTE 5 | STATUS: 4 | PAYLOAD: 114 | PACOTES: 9 | CRC: 61197 
+MOMENTO: 2020-10-02 18:19:56.284349 | PACOTE 6 | STATUS: 4 | PAYLOAD: 114 | PACOTES: 9 | CRC: 9585 
+
+Sem reposta, enviando pacote novamente... 5 segundos
+
+Sem reposta, enviando pacote novamente... 10 segundos
+
+Sem reposta, enviando pacote novamente... 15 segundos
+
+Sem reposta, enviando pacote novamente... 20 segundos
+
+Comunicação perdida! 
+-------------------------------------- 
+ 
+------- ENCERRANDO COMUNICAÇÃO ------- 
+Comunicação encerrada! 
+ 
+--------------- STATUS --------------- 
+Comunicação perdida! 

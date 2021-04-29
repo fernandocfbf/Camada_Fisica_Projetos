@@ -1,0 +1,33 @@
+1. Qual o bautrate que está sendo utilizado pelo software? Como você pode calcula-lo a partir das funções?
+
+O bautrate utilizado pelo software é 9600 bits/s. Podemos calcular esse valor através da função "_sw_uart_wait_half_T", sabendo que o clock do arduino é 21MHz, 
+podemos fazer a seguinte regra de três:
+
+1s ------> 21MHz | x = 5,20476.10^(-5)
+xs ------> 1093  |
+
+Sabendo que esse tempo corresponde a metade do tempo do baudrate, temos que 1 bit é passado em 1,040952.10^(-4). Desta forma:
+
+1 bit ------> 1,040952.10^(-4) [s] |  x ≅ 9600 bits/s
+x bits -----> 1 [s]                |
+
+2. Como você alteraria o software para ter um baudrate duas vezes o atual? Mostre o código alterado. 
+
+Para que o baudrate seja duas vezes o atual, é necessário que o tempo de No Operation (NOP) caia pela metade, ou seja, a função "_sw_uart_wait_half_T" deverá ser
+alterada da seguinte forma:
+
+
+void _sw_uart_wait_half_T(due_sw_uart *uart) {
+	for(int i = 0; i < 546; i++)
+		asm("NOP");
+}
+
+
+
+
+3. Explique a necessidade de se ter uma função "void _sw_uart_wait_half_T". Por que apenas a função "void _sw_uart_wait_T" já não é suficiente? 
+
+Para que o dado seja lido no momento de estabilidade é necessário esperar metade do tempo de um um bit, caso contrário o momento de leitura seria no instante de 
+transição entre o LOW e HIGH, porém isso deve ser feito apenas uma vez, ou seja, no início, após isso o software pode esperar um tempo completo pois cairá sempre
+no momento de estabilidade. Portanto somente com a função "_sw_uart_wait_T" não seria possível ler no momento certo, é necessário utilizar a função 
+"_sw_uart_wait_half_T" ao menos uma vez.
